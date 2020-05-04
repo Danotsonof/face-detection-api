@@ -2,6 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const cors = require("cors");
 const knex = require("knex");
+/* when in dev
 const db = knex({
   client: "pg",
   connection: {
@@ -9,6 +10,14 @@ const db = knex({
     user: "postgres",
     password: "dands1@P",
     database: "face-detection"
+  }
+});*/
+
+const db = knex({
+  client: "pg",
+  connection: {
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
   }
 });
 
