@@ -2,7 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const cors = require("cors");
 const knex = require("knex");
-/* when in dev
+/* for development mode
 const db = knex({
   client: "pg",
   connection: {
