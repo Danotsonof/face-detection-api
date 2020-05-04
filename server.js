@@ -23,7 +23,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const port = 3001;
+const port = 3000;
 
 // app.get("/", (req, res) => res.send('success'));
 app.post("/register", (req, res) => {register.handleRegister(req, res, db, bcrypt)});
@@ -34,6 +34,6 @@ app.post("/imageClarifai", (req, res) => {image.handleClarifaiApi(req, res)});
 app.delete("/deleteAccount", (req, res) => {deleteAccount.deleteAccount(req, res, db)});
 
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`app running on port ${port}`);
 });
