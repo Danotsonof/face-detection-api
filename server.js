@@ -35,9 +35,14 @@ const profile = require('./controllers/profile')
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(
+    cors({
+        origin: "https://face-detection-webapp.herokuapp.com/", 
+        credentials: true,
+    })
+);
 
-const port = 3001;
+//const port = 3001;
 
 // app.get("/", (req, res) => res.send('success'));
 app.post("/register", (req, res) => {register.handleRegister(req, res, db, bcrypt)});
